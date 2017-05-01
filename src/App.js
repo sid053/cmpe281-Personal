@@ -7,13 +7,14 @@ import {
   Grid,
   Thumbnail,
   Jumbotron,
-  Button,
-  Container,
-
+  Button
+ 
  
 } from 'react-bootstrap';
 
 class App extends Component {
+
+
   render() {
     return (
      <div>
@@ -25,7 +26,7 @@ class App extends Component {
    <center> <h3>Choose Tenant to Grade</h3></center>
     
    
-
+  
     
  <hr className="my-2" />
 
@@ -33,12 +34,16 @@ class App extends Component {
   <Row>
   <Col xs={6} md={3}>
     <Thumbnail href="www.facebook.com" alt="171x180" src="https://s3-us-west-1.amazonaws.com/cmpe281starbuckscarouselimages/image3.JPG" />
+       <Button bsStyle="primary" bsSize="large" href="Tenent1" block> Tenant 1</Button>
   </Col>
   <Col xs={6} md={3}>
     <Thumbnail href="www.google.com" alt="171x180" src="https://s3-us-west-1.amazonaws.com/cmpe281starbuckscarouselimages/image3.JPG" />
+       <Button bsStyle="primary"  href="Tenent2"bsSize="large" block> Tenant 2</Button>
   </Col>
-  <Col xs={6} md={3}>
+  <Col></Col>
+  <Col xs={8} md={3}>
     <Thumbnail href="www.yahoo.com" alt="171x180" src="https://s3-us-west-1.amazonaws.com/cmpe281starbuckscarouselimages/image3.JPG" />
+       <Button bsStyle="primary" bsSize="large" block> Tenant 3</Button>
   </Col>
   </Row>
 </Grid>
