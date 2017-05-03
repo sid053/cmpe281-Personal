@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import { 
   Row, 
@@ -8,13 +8,16 @@ import {
   Thumbnail,
   Jumbotron,
   Button
- 
+  
+  
  
 } from 'react-bootstrap';
 
+
+
 class App extends Component {
 
-
+  
   render() {
     return (
      <div>
@@ -32,6 +35,7 @@ class App extends Component {
 
   <Grid>
   <Row>
+  <center>
   <Col xs={6} md={3}>
     <Thumbnail href="www.facebook.com" alt="171x180" src="https://s3-us-west-1.amazonaws.com/cmpe281starbuckscarouselimages/image3.JPG" />
        <Button bsStyle="primary" bsSize="large" href="Tenent1" block> Tenant 1</Button>
@@ -45,9 +49,13 @@ class App extends Component {
     <Thumbnail href="www.yahoo.com" alt="171x180" src="https://s3-us-west-1.amazonaws.com/cmpe281starbuckscarouselimages/image3.JPG" />
        <Button bsStyle="primary" bsSize="large" block> Tenant 3</Button>
   </Col>
+  </center>
   </Row>
+
+  
 </Grid>
 
+    
     
      </Jumbotron>
 

@@ -9,9 +9,12 @@
     "react-addons-transition-group": "^15.5.2",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4",
+    "react-dropzone": "^3.13.1",
+    "react-file-input": "^0.2.5",
     "react-materialize": "^0.18.2",
+    "react-router": "^2.6.1",
     "reactstrap": "^4.5.0",
-    "react-router": "^2.6.1"
+    "superagent": "^3.5.2"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"

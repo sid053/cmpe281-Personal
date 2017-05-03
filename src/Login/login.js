@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Jumbotron, Button,Form,FormGroup,Col,FormControl,Checkbox,
   ControlLabel
   } from 'react-bootstrap';
+  
 
 class Login extends Component {
   render(){
   return (
     <div>
      <Jumbotron fluid>
-   
+   <center>
   <Form horizontal>
     <FormGroup>
       <Col componentClass={ControlLabel} sm={2}>
@@ -42,7 +43,7 @@ class Login extends Component {
       </Col>
     </FormGroup>
   </Form>
-
+  </center>
 
   </Jumbotron>
 
