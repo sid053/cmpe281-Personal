@@ -29,7 +29,9 @@ router.get('/', function(req, res) {
  //post new comment to the database
  .post(function(req, res) {
       console.log("File came here"); 
+     //res.download(req.body);
 
+     res.send(req.body);
  	});
 
 

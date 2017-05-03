@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import Dropzone from 'react-dropzone';
 import './Tenent1.css';
-import request from 'superagent';
-const CLOUDINARY_UPLOAD_PRESET = '976126475827848';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/sidd053/upload';  
+import axios from 'axios';
   import { 
   FormGroup,
   ControlLabel,
@@ -13,11 +11,18 @@ const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/sidd053/upload';
   HelpBlock,
   Jumbotron,
   Button,
-  Image
+  Thumbnail
  }from 'react-bootstrap';
- import FileInput from 'react-file-input';
-
-
+ 
+function FieldGroup({ id, label, help, ...props }) {
+  return (
+    <FormGroup controlId={id}>
+      <ControlLabel>{label}</ControlLabel>
+      <FormControl {...props} />
+      {help && <HelpBlock>{help}</HelpBlock>}
+    </FormGroup>
+  );
+}
 
 
 
@@ -27,22 +32,42 @@ class Tenent1 extends Component {
             this.state = {
              uploadedFileCloudinaryUrl: ''
             }
+             this.postDataToApi = this.postDataToApi.bind(this);
           }
     
   onImageDrop(files) {
     this.setState({
       uploadedFile: files[0]
     });
-    console.log(this.state.uploadedFile);
+    this.postDataToApi();
      
   }
-
+   postDataToApi(event){
+  //event.preventDefault();
+   axios.post('http://localhost:3001/api/file',this.state.uploadedFile)
+        .then(res=>{
+           console.log("back from Tenent1");
+           let variable = res.body ;
+           console.log(variable);
+        })
+        .catch(err=> {
+          console.log(err);
+        })
+  
+ }
   render() {
      const { className, ...props } = this.props;
      return (
-       
+       <div>
       <Jumbotron fluid>
-      
+       
+       <FieldGroup
+      id="formControlsFile"
+      type="file"
+      label="File"
+      help="Example block-level help text here."
+    />  
+
       <center> 
       
       <Dropzone
@@ -52,16 +77,10 @@ class Tenent1 extends Component {
       <p>Drop an image or click to select a file to upload.</p>
     </Dropzone>
       </center>
-      
-      
-         <Image source={this.state.uploadedFile} />
-      
     
-  
-     
-     
       </Jumbotron>
-
+    
+      </div>
     );
   }
 }
