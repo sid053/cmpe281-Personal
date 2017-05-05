@@ -37,13 +37,15 @@ class Tenent1 extends Component {
     
   onImageDrop(files) {
     this.setState({
-      uploadedFile: files[0]
+      uploadedFile: files[0].name 
     });
+console.log(this.state.uploadedFile);
     this.postDataToApi();
      
   }
    postDataToApi(event){
   //event.preventDefault();
+  
    axios.post('http://localhost:3001/api/file',this.state.uploadedFile)
         .then(res=>{
            console.log("back from Tenent1");

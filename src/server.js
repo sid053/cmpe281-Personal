@@ -2,10 +2,15 @@ var express = require('express');
 //var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = express();
+const fs = require('fs');
+const fstream = require('fstream');
 var router = express.Router();
 var port = process.env.API_PORT || 3001;
+var unzip = require('unzip');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+var writeStream = fstream.Writer('/Users/sid/Desktop/output/path');
 
 app.use(function(req, res, next) {
  res.setHeader('Access-Control-Allow-Origin', '*');
@@ -21,7 +26,7 @@ router.get('/', function(req, res) {
 });
 
 //adding the /order route to our /api router
-
+ 
  router.route('/file')
 
  
@@ -30,7 +35,8 @@ router.get('/', function(req, res) {
  .post(function(req, res) {
       console.log("File came here"); 
      //res.download(req.body);
-
+     var readStream = fs.createReadStream(req.body.name);
+       readStream.pipe(unzip.Parse()).pipe(writeStream)
      res.send(req.body);
  	});
 
