@@ -16,6 +16,12 @@
       background-color: #f1f1f1;
       height: 100%;
     }
+
+    hr {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        }
     
     /* Set black background color, white text and some padding */
     footer {
@@ -40,12 +46,23 @@
 <div class="jumbotron text-center">
 <div class="row content">
     <div class="col-sm-3 sidenav">
-      <h2>Tenent 1</h2>
-     
+     <div> <h2>Tenent 1</h2>
+     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Grade</button>
+   </div>
 
+   <div>
+    <h4><small>Other Tenents</small></h4>
+   </div>
+      <hr>
+   
+   <div>
+        <button type="button" class="btn btn-info btn-lg" aref="hell" >Tenent2 </button>
+   </div>.
 
+   <div>
+       <button type="button" class="btn btn-info btn-lg" >Tenent3</button>
+   </div>.
 
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Grade</button>
 
 </div>
 
@@ -60,7 +77,7 @@
 
   <div>   <center> <input type="file" name="fileToUpload" id="fileToUpload"> </center></div>
 
-    <div><input class="btn btn-info btn-lg" type="submit" value="Upload" name="submit"></div>
+    <div><input class="btn btn-info btn-md" type="submit" value="Upload" name="submit"></div>
 </form>
 
 
