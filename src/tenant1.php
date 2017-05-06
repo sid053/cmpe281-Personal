@@ -43,24 +43,33 @@
 <body>
 
 
-<div class="jumbotron text-center">
+
 <div class="row content">
     <div class="col-sm-3 sidenav">
-     <div> <h2>Tenent 1</h2>
+     <div> <center> <h2>Tenent 1</h2>
      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Grade</button>
+     </center>
    </div>
 
+
+
    <div>
+   <center>
     <h4><small>Other Tenents</small></h4>
+   </center>
    </div>
       <hr>
    
    <div>
-        <button type="button" class="btn btn-info btn-lg" aref="hell" >Tenent2 </button>
+   <center>
+        <button type="button" class="btn btn-info btn-lg"  onclick=" window.location='http://www.google.com';" >Tenent2 </button>
+   </center>     
    </div>.
-
+     
    <div>
-       <button type="button" class="btn btn-info btn-lg" >Tenent3</button>
+   <center>
+       <button type="button" class="btn btn-info btn-lg" onclick=" window.location='http://www.facebook.com';"  >Tenent3</button>
+   </center>
    </div>.
 
 
@@ -68,21 +77,22 @@
 
      
  <div class="col-sm-9">  <!-- Dispplay the image in this section -->
-
+       <center>
       <h4><small>Image Section</small></h4>     
 
 <form method="post" enctype="multipart/form-data">
 
     <h3>Select image to upload:</h3>
 
-  <div>   <center> <input type="file" name="fileToUpload" id="fileToUpload"> </center></div>
+  <div> <input type="file" name="fileToUpload" id="fileToUpload"> </div>
 
-    <div><input class="btn btn-info btn-md" type="submit" value="Upload" name="submit"></div>
+    <div> <input class="btn btn-info btn-md" type="submit" value="Upload" name="submit"></div>
 </form>
+   </center>
+ </div>
 
 
-
-</div>    <!--before this closing div display the image -->
+    <!--before this closing div display the image -->
 
 
 <!-- Modal -->
@@ -100,7 +110,7 @@
         <p>Some text in the modal.</p>
       
      <!-- put the code here for gradinng dropdowns and etc etc -->
-
+    
 
 
       </div>
@@ -148,15 +158,32 @@ if ($zip->open($target_file) === TRUE) {
     mkdir($target_dir.$f);
     $zip->extractTo($target_dir.$f);
     $zip->close();
- 
+    $current=getcwd();
+    //unlink('output2.jpg');
     unlink($target_file); 
+
     $SourceFile ='/Users/sid/Desktop/test/Amita-Kamat-CMPE-202/UMLParser/src';
     chdir($SourceFile);
-    //shell_exec('java -jar UmlParser.jar /Users/sid/Desktop/test/test4 output2.jpg');
-
-    echo "<h1>The image is generated</h1>";
+    $script = 'java -jar UmlParser.jar /Users/sid/Desktop/test/'.$f.' output2.jpg' ;
+    shell_exec($script);
+    chdir($current);
+    //echo "<h1>The image is generated</h1>";
     echo "<h2>The generated image is </h2>" ;
   // the image tag will come here
+    
+    $final = '/Users/sid/Desktop/test/Amita-Kamat-CMPE-202/Output-Diagrams/output2.jpg';
+    //echo $final ;
+    //chdir($final);
+    echo "<br>";
+    //echo getcwd();
+    $script1 = 'mv '.$final.' .';
+
+    //echo $script1;
+    shell_exec($script1);
+    echo '<img src="output2.jpg"/>';
+
+    //unlink($ImageFile);
+
 
 } 
        
